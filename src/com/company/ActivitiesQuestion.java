@@ -36,7 +36,6 @@ public class ActivitiesQuestion {
         button8.setFont(font1);
         button9.setFont(font1);
 
-        JLabel background = new JLabel(new ImageIcon("C:\\Users\\MagicBook\\Desktop\\XmPSDbJ"));
 
         button8.setBackground(colorback); button8.setForeground(new Color(255,255,255)); // размеры кнопочек
         button9.setBackground(colorback); button9.setForeground(new Color(255,255,255));

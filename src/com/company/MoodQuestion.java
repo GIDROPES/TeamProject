@@ -43,7 +43,7 @@ public class MoodQuestion {
         button6.setFont(font1);
         button7.setFont(font1);
 
-        JLabel background = new JLabel(new ImageIcon("C:\\Users\\MagicBook\\Desktop\\XmPSDbJ"));
+
         JLabel label = new JLabel("We invite you to answer a number of questions"); // тексты
         JLabel label1 = new JLabel("What's your name?");
 
