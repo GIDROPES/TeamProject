@@ -71,8 +71,8 @@ public class GreetingWindow {
 
 
         contentPane.add(button1);
-        GreatingWindow.setContentPane(contentPane);
         contentPane.add(label);
+        GreatingWindow.setContentPane(contentPane);
 
         GreatingWindow.setVisible(true);
         GreatingWindow.pack();
