@@ -32,7 +32,7 @@ public class GreetingWindow {
         //GreatingWindow.getContentPane().setBackground(colorback);
         Random random = new Random(); //Создали объекта класса, чтобы генерировать случайные надписи из массива
 
-        Font font1 = new Font("Century Gothic", Font.BOLD, 20);
+        Font font1 = new Font("Century Gothic", Font.BOLD, 32);
         JLabel label = new JLabel(GreetingWords[random.nextInt(GreetingWords.length)], SwingConstants.CENTER); //Генерирует надписи
         label.setForeground(new Color(255,255,255));
         label.setFont(font1);                                           //тут шрифт и цвет
