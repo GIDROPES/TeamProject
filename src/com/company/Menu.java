@@ -58,7 +58,6 @@ public class Menu {
         button4.setFont(font1);
         button5.setFont(font1);
 
-        JLabel background=new JLabel(new ImageIcon("C:\\Users\\MagicBook\\Desktop\\XmPSDbJ"));
 
         button1.setBackground(buttColor); button1.setForeground(new Color(255,255,255));
         button2.setBackground(buttColor); button2.setForeground(new Color(255,255,255));
@@ -85,7 +84,6 @@ public class Menu {
         contentPane.add(button4);
         contentPane.add(button5);
 
-        contentPane.add(background);
 
         Menu.setVisible(true);
         return Menu;

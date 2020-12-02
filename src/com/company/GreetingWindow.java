@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class GreetingWindow {
 
-    String GreetingWords[] = {"Hello, are you ok?", "Hey, everything will be fine", "Long time no see", "Glad to see you" };
+    private String GreetingWords[] = {"Hello, are you ok?", "Hey, everything will be fine", "Long time no see", "Glad to see you" };
 
     public JFrame getGreetingWindow() {
         JFrame GreatingWindow = new JFrame();
@@ -37,24 +37,28 @@ public class GreetingWindow {
         label.setForeground(new Color(255,255,255));
         label.setFont(font1);                                           //тут шрифт и цвет
 
+
+        Font font2 = new Font("Century Gothic", Font.BOLD, 14);  //Видимо, шрифт для кнопочки, но размером поменьше
+
         //Color colorback2 = new Color(135, 206, 235);
 
+        Dimension buttonSize = new Dimension(160,40); //Универсальный размер для кнопки переключения
 
         JButton button1 = new JButton();
-        button1.setPreferredSize(new Dimension(140, 70));    //Кнопочка далее и её параметры
-        button1.setBackground(new Color(255,255,255));
-        button1.setForeground(new Color(0,0,0));
+        button1.setPreferredSize(buttonSize);    //Кнопочка далее и её параметры
+        button1.setBackground(new Color(255,255,255,0));
+        button1.setForeground(new Color(255,255,255));
+        button1.setFont(font2);
         button1.setText(new String("NEXT"));
 
 
-        Font font2 = new Font("Century Gothic", Font.BOLD, 14);  //Видимо, шрифт для кнопочки, но размером поменьше
 
 
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, label, 0, SpringLayout.HORIZONTAL_CENTER, contentPane);
         layout.putConstraint(SpringLayout.VERTICAL_CENTER, label, 0, SpringLayout.VERTICAL_CENTER, contentPane);
 
-        layout.putConstraint(SpringLayout.SOUTH, button1, 0, SpringLayout.SOUTH, contentPane);
-        layout.putConstraint(SpringLayout.EAST, button1, 0, SpringLayout.EAST, contentPane);
+        layout.putConstraint(SpringLayout.SOUTH, button1, -10, SpringLayout.SOUTH, contentPane);   //
+        layout.putConstraint(SpringLayout.EAST, button1, -10, SpringLayout.EAST, contentPane);
 
 
         button1.addActionListener(new ActionListener() {
