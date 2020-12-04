@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        /*
         GreetingWindow window1 = new GreetingWindow();
         window1.getGreetingWindow();
 
@@ -11,6 +12,11 @@ public class Main {
         //t1.sgetTest();
 
         //with Main config
-        
+
+         */
+
+        FirstQ firstQ = new FirstQ();
+        firstQ.getFirstQ();
+
     }
 }

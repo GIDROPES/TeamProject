@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class FirstQ {
 
-    public static JFrame getFirstQ(){
+    public JFrame getFirstQ(){
 
         JFrame FQ = new JFrame();
         FQ.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

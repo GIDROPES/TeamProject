@@ -24,7 +24,7 @@ public class ObjectivesWindow {
 
         contentPane.setFilePath("src/Backgrounds/TargetBackReal.png");
 
-        JButton button = new JButton("+ ADD")
+        JButton button = new JButton("+ ADD");
 
 
 

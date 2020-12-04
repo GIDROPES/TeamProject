@@ -105,4 +105,12 @@ public class ThirdQ {
             }
         });
 
+        TQ.setVisible(true);
+
+        return TQ;
+
+    }
+
+}
+
 
