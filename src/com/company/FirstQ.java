@@ -2,9 +2,12 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class FirstQ {
+
     public static JFrame getFirstQ(){
 
         JFrame FQ = new JFrame();
@@ -23,24 +26,20 @@ public class FirstQ {
         FQ.getContentPane().setBackground(colorback);
         Font font1 = new Font("Century Gothic", Font.BOLD, 14);
         Font font2 = new Font("Century Gothic", Font.BOLD, 20);
-        Font font3 = new Font("Century Gothic", Font.BOLD, 20);
 
-        JButton button8 = new JButton("Back");
-        JButton button9 = new JButton("Next");
+
+        JButton button8 = new JButton("Next");
 
         layout.putConstraint(SpringLayout.SOUTH, button8, -10, SpringLayout.SOUTH, contentPane);   //
-        layout.putConstraint(SpringLayout.WEST, button8, 10, SpringLayout.WEST, contentPane);
-        layout.putConstraint(SpringLayout.SOUTH, button9, -10, SpringLayout.SOUTH, contentPane);   //
-        layout.putConstraint(SpringLayout.EAST, button9, -10, SpringLayout.EAST, contentPane);
+        layout.putConstraint(SpringLayout.EAST, button8, -10, SpringLayout.EAST, contentPane);
 
 
         Dimension buttonSize = new Dimension(160,40);
 
-        button8.setPreferredSize(buttonSize);         // кнопочки
-        button9.setPreferredSize(buttonSize);
+        // кнопочки
+        button8.setPreferredSize(buttonSize);
 
         button8.setFont(font1);
-        button9.setFont(font1);
 
 
         JLabel label = new JLabel("We invite you to answer a number of questions"); // тексты
@@ -53,13 +52,14 @@ public class FirstQ {
 
         field.setPreferredSize(new Dimension(500,50));     // Указали размеры
 
+        field.setFont(font2);
 
-        button8.setBackground(colorback); button8.setForeground(new Color(255,255,255)); // размеры кнопочек
-        button9.setBackground(colorback); button9.setForeground(new Color(255,255,255));
+
+
+        button8.setBackground(colorback); button8.setForeground(new Color(255,255,255));
 
 
         contentPane.add(button8);
-        contentPane.add(button9);
         contentPane.add(label);
         contentPane.add(label1);
         contentPane.add(field);
@@ -79,10 +79,18 @@ public class FirstQ {
 
 
 
-
+        button8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SecondQ SecondQ = new SecondQ();
+                SecondQ.getSecondQ();
+                FQ.setVisible(false);
+            }
+        });
 
         FQ.setVisible(true);
 
         return FQ;
     }
 }
+

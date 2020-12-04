@@ -77,6 +77,15 @@ public class Menu {
         });
 
 
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ObjectivesWindow ob = new ObjectivesWindow();
+                ob.getObjectivesWindow();
+            }
+        });
+
+
 
         contentPane.add(button1);
         contentPane.add(button2);
