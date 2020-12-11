@@ -25,23 +25,23 @@ public class ThirdQ {
         Font font2 = new Font("Century Gothic", Font.BOLD, 20);
 
 
-        JButton button12 = new JButton("Next");
-        JButton button13 = new JButton("Back");
+        JButton button1 = new JButton("Next");
+        JButton button2 = new JButton("Back");
 
-        layout.putConstraint(SpringLayout.SOUTH, button12, -10, SpringLayout.SOUTH, contentPane);   //
-        layout.putConstraint(SpringLayout.EAST, button12, -10, SpringLayout.EAST, contentPane);
-        layout.putConstraint(SpringLayout.SOUTH, button13, -10, SpringLayout.SOUTH, contentPane);
-        layout.putConstraint(SpringLayout.WEST, button13, 10, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.SOUTH, button1, -10, SpringLayout.SOUTH, contentPane);   //
+        layout.putConstraint(SpringLayout.EAST, button1, -10, SpringLayout.EAST, contentPane);
+        layout.putConstraint(SpringLayout.SOUTH, button2, -10, SpringLayout.SOUTH, contentPane);
+        layout.putConstraint(SpringLayout.WEST, button2, 10, SpringLayout.WEST, contentPane);
 
 
         Dimension buttonSize = new Dimension(160,40);
 
         // кнопочки
-        button12.setPreferredSize(buttonSize);
-        button13.setPreferredSize(buttonSize);
+        button1.setPreferredSize(buttonSize);
+        button2.setPreferredSize(buttonSize);
 
-        button12.setFont(font1);
-        button12.setFont(font1);
+        button1.setFont(font1);
+        button2.setFont(font1);
 
 
         JLabel label = new JLabel("Enter your age"); // тексты
@@ -52,8 +52,8 @@ public class ThirdQ {
         label1.setFont(font2);
         label2.setFont(font2);
 
-        button12.setBackground(colorback); button12.setForeground(new Color(255,255,255));
-        button13.setBackground(colorback); button13.setForeground(new Color(255,255,255));
+        button1.setBackground(colorback); button1.setForeground(new Color(255,255,255));
+        button2.setBackground(colorback); button2.setForeground(new Color(255,255,255));
 
         JTextField field = new JTextField();                 // Добавили панель для ввода
 
@@ -62,8 +62,8 @@ public class ThirdQ {
         field.setFont(font2);
 
 
-        contentPane.add(button12);
-        contentPane.add(button13);
+        contentPane.add(button1);
+        contentPane.add(button2);
         contentPane.add(label);
         contentPane.add(label1);
         contentPane.add(label2);
@@ -87,7 +87,7 @@ public class ThirdQ {
         layout.putConstraint(SpringLayout.NORTH, field, 350,
                 SpringLayout.NORTH, contentPane);
 
-        button13.addActionListener(new ActionListener() {
+        button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SecondQ SecondQ = new SecondQ();
@@ -96,7 +96,7 @@ public class ThirdQ {
             }
         });
 
-        button12.addActionListener(new ActionListener() {
+        button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ByeW ByeW = new ByeW();
