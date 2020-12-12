@@ -24,18 +24,18 @@ public class ByeW {
         Font font2 = new Font("Century Gothic", Font.BOLD, 20);
 
 
-        JButton button14 = new JButton("BEGIN");
+        JButton button1 = new JButton("BEGIN");
 
-        layout.putConstraint(SpringLayout.NORTH, button14, 300, SpringLayout.NORTH, contentPane);   //
-        layout.putConstraint(SpringLayout.WEST, button14, 360, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.NORTH, button1, 300, SpringLayout.NORTH, contentPane);   //
+        layout.putConstraint(SpringLayout.WEST, button1, 360, SpringLayout.WEST, contentPane);
 
-        button14.setBackground(colorback); button14.setForeground(new Color(255,255,255));
+        button1.setBackground(colorback); button1.setForeground(new Color(255,255,255));
 
         Dimension buttonSize = new Dimension(260,120);
 
-        button14.setPreferredSize(buttonSize);
+        button1.setPreferredSize(buttonSize);
 
-        button14.setFont(font1);
+        button1.setFont(font1);
 
 
         JLabel label = new JLabel("Thank you, Your answers were accepted");
@@ -49,7 +49,7 @@ public class ByeW {
 
         contentPane.add(label);
         contentPane.add(label1);
-        contentPane.add(button14);
+        contentPane.add(button1);
 
 
         layout.putConstraint(SpringLayout.WEST , label, 300,               // размещаем тексты и др. хурму

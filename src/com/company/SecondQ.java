@@ -27,29 +27,29 @@ public class SecondQ {
         Font font3 = new Font("Century Gothic", Font.BOLD, 24);
 
 
-        JButton button9 = new JButton("Back");
-        JButton button10 = new JButton("Man");
-        JButton button11 = new JButton("Woman");
+        JButton button1 = new JButton("Back");
+        JButton button2 = new JButton("Man");
+        JButton button3 = new JButton("Woman");
 
-        layout.putConstraint(SpringLayout.SOUTH, button9, -10, SpringLayout.SOUTH, contentPane);   //
-        layout.putConstraint(SpringLayout.WEST, button9, 10, SpringLayout.WEST, contentPane);
-        layout.putConstraint(SpringLayout.NORTH, button10, 250, SpringLayout.NORTH, contentPane);
-        layout.putConstraint(SpringLayout.WEST, button10, 220, SpringLayout.WEST, contentPane);
-        layout.putConstraint(SpringLayout.NORTH, button11, 250, SpringLayout.NORTH, contentPane);
-        layout.putConstraint(SpringLayout.WEST, button11, 520, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.SOUTH, button1, -10, SpringLayout.SOUTH, contentPane);   //
+        layout.putConstraint(SpringLayout.WEST, button1, 10, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.NORTH, button2, 250, SpringLayout.NORTH, contentPane);
+        layout.putConstraint(SpringLayout.WEST, button2, 220, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.NORTH, button3, 250, SpringLayout.NORTH, contentPane);
+        layout.putConstraint(SpringLayout.WEST, button3, 520, SpringLayout.WEST, contentPane);
 
 
         Dimension buttonSize = new Dimension(160,40);
         Dimension buttonSize1 = new Dimension(200, 70);
 
         // кнопочки
-        button9.setPreferredSize(buttonSize);
-        button10.setPreferredSize(buttonSize1);
-        button11.setPreferredSize(buttonSize1);
+        button1.setPreferredSize(buttonSize);
+        button2.setPreferredSize(buttonSize1);
+        button3.setPreferredSize(buttonSize1);
 
-        button9.setFont(font1);
-        button10.setFont(font3);
-        button11.setFont(font3);
+        button1.setFont(font1);
+        button2.setFont(font3);
+        button3.setFont(font3);
 
 
 
@@ -60,14 +60,14 @@ public class SecondQ {
 
 
 
-        button9.setBackground(colorback); button9.setForeground(new Color(255,255,255));
-        button10.setBackground(colorback); button10.setForeground(new Color(255,255,255));
-        button11.setBackground(colorback); button11.setForeground(new Color(255,255,255));
+        button1.setBackground(colorback); button1.setForeground(new Color(255,255,255));
+        button2.setBackground(colorback); button2.setForeground(new Color(255,255,255));
+        button3.setBackground(colorback); button3.setForeground(new Color(255,255,255));
 
 
-        contentPane.add(button9);
-        contentPane.add(button10);
-        contentPane.add(button11);
+        contentPane.add(button1);
+        contentPane.add(button2);
+        contentPane.add(button3);
         contentPane.add(label);
 
 
@@ -76,7 +76,7 @@ public class SecondQ {
         layout.putConstraint(SpringLayout.NORTH, label, 100,
                 SpringLayout.NORTH, contentPane);
 
-        button9.addActionListener(new ActionListener() {
+        button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 FirstQ FirstQ = new FirstQ();
@@ -85,7 +85,7 @@ public class SecondQ {
             }
         });
 
-        button10.addActionListener(new ActionListener() {
+        button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ThirdQ ThirdQ = new ThirdQ();
@@ -94,7 +94,7 @@ public class SecondQ {
             }
         });
 
-        button11.addActionListener(new ActionListener() {
+        button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ThirdQ ThirdQ = new ThirdQ();

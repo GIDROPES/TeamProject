@@ -28,18 +28,18 @@ public class FirstQ {
         Font font2 = new Font("Century Gothic", Font.BOLD, 20);
 
 
-        JButton button8 = new JButton("Next");
+        JButton button1 = new JButton("Next");
 
-        layout.putConstraint(SpringLayout.SOUTH, button8, -10, SpringLayout.SOUTH, contentPane);   //
-        layout.putConstraint(SpringLayout.EAST, button8, -10, SpringLayout.EAST, contentPane);
+        layout.putConstraint(SpringLayout.SOUTH, button1, -10, SpringLayout.SOUTH, contentPane);   //
+        layout.putConstraint(SpringLayout.EAST, button1, -10, SpringLayout.EAST, contentPane);
 
 
         Dimension buttonSize = new Dimension(160,40);
 
         // кнопочки
-        button8.setPreferredSize(buttonSize);
+        button1.setPreferredSize(buttonSize);
 
-        button8.setFont(font1);
+        button1.setFont(font1);
 
 
         JLabel label = new JLabel("We invite you to answer a number of questions"); // тексты
@@ -50,16 +50,17 @@ public class FirstQ {
 
         JTextField field = new JTextField();                 // Добавили панель для ввода
 
+
         field.setPreferredSize(new Dimension(500,50));     // Указали размеры
 
         field.setFont(font2);
 
 
 
-        button8.setBackground(colorback); button8.setForeground(new Color(255,255,255));
+        button1.setBackground(colorback); button1.setForeground(new Color(255,255,255));
 
 
-        contentPane.add(button8);
+        contentPane.add(button1);
         contentPane.add(label);
         contentPane.add(label1);
         contentPane.add(field);
@@ -79,7 +80,7 @@ public class FirstQ {
 
 
 
-        button8.addActionListener(new ActionListener() {
+        button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SecondQ SecondQ = new SecondQ();
