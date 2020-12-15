@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.text.html.Option;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -82,6 +83,15 @@ public class Menu {
             public void actionPerformed(ActionEvent e) {
                 ObjectivesWindow ob = new ObjectivesWindow();
                 ob.getObjectivesWindow();
+            }
+        });
+
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Options Options = new Options();
+                Options.getOptions();
+                Menu.setVisible(false);
             }
         });
 
