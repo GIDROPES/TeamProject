@@ -25,9 +25,13 @@ public class ObjectivesWindow {
         contentPane.setFilePath("src/Backgrounds/TargetBackReal.png");
 
         JButton button = new JButton("+ ADD");
+        button.setBackground(new Color(255,255,255,0));
 
 
+        layout.putConstraint(SpringLayout.EAST, button, -90, SpringLayout.EAST, contentPane);
+        layout.putConstraint(SpringLayout.NORTH, button, 20, SpringLayout.NORTH, contentPane);
 
+        contentPane.add(button);
         obwin.setContentPane(contentPane);
         obwin.setVisible(true);
         return obwin;

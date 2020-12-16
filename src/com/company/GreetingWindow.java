@@ -25,7 +25,7 @@ public class GreetingWindow {
         contentPane.setPreferredSize(new Dimension(950,700));
 
 
-        contentPane.setFilePath("src/com/company/BackEvening.png");  //Использовал собственную функцию для пути фона окна
+        contentPane.setFilePath("src/com/company/HelloBackground.png");  //Использовал собственную функцию для пути фона окна
 
 
         //Color colorback = new Color(0, 128, 128);
@@ -46,7 +46,8 @@ public class GreetingWindow {
 
         JButton button1 = new JButton();
         button1.setPreferredSize(buttonSize);    //Кнопочка далее и её параметры
-        button1.setBackground(new Color(255,255,255,0));
+        button1.setOpaque(false);
+        button1.setContentAreaFilled(false);
         button1.setForeground(new Color(255,255,255));
         button1.setFont(font2);
         button1.setText(new String("NEXT"));

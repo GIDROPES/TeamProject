@@ -15,16 +15,17 @@ public class Menu {
         Menu.setBounds(dimension.width / 2 - 475, dimension.height / 2 - 350, 950, 700);
 
 
-        Container contentPane = Menu.getContentPane();
+        BackgroundPanel contentPane = new BackgroundPanel();
         SpringLayout layout = new SpringLayout();
         contentPane.setLayout(layout);
         contentPane.setPreferredSize(new Dimension(950, 700));
 
+        contentPane.setFilePath("src/com/company/HelloBackground.png");
+
         Color buttColor = new Color(47, 79, 79);                           //цвет кнопок
 
 
-        Color colorback = new Color(0, 128, 128);                      //цвет фона окна
-        Menu.getContentPane().setBackground(colorback);
+
         Font font1 = new Font("Century Gothic", Font.BOLD, 14);
 
         JButton button1 = new JButton("LET'S START");
@@ -58,13 +59,25 @@ public class Menu {
         button4.setFont(font1);
         button5.setFont(font1);
 
+        button1.setOpaque(false);
+        button1.setContentAreaFilled(false);
+        button1.setForeground(new Color(255,255,255));
 
-        button1.setBackground(buttColor); button1.setForeground(new Color(255,255,255));
-        button2.setBackground(buttColor); button2.setForeground(new Color(255,255,255));
-        button3.setBackground(buttColor); button3.setForeground(new Color(255,255,255));
-        button5.setBackground(buttColor); button5.setForeground(new Color(255,255,255));
+        button2.setOpaque(false);
+        button2.setContentAreaFilled(false);
+        button2.setForeground(new Color(255,255,255));
 
-        button4.setBackground(colorback); button4.setForeground(new Color(255,255,255));
+        button3.setOpaque(false);
+        button3.setContentAreaFilled(false);
+        button3.setForeground(new Color(255,255,255));
+
+        button5.setOpaque(false);
+        button5.setContentAreaFilled(false);
+        button5.setForeground(new Color(255,255,255));
+
+        button4.setOpaque(false);
+        button4.setContentAreaFilled(false);
+        button4.setForeground(new Color(255,255,255));
 
 
         button1.addActionListener(new ActionListener() {
@@ -82,6 +95,7 @@ public class Menu {
             public void actionPerformed(ActionEvent e) {
                 ObjectivesWindow ob = new ObjectivesWindow();
                 ob.getObjectivesWindow();
+                Menu.setVisible(false);
             }
         });
 
@@ -93,7 +107,8 @@ public class Menu {
         contentPane.add(button4);
         contentPane.add(button5);
 
-
+        Menu.setContentPane(contentPane);
+        Menu.pack();
         Menu.setVisible(true);
         return Menu;
     }
