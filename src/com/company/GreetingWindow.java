@@ -53,6 +53,10 @@ public class GreetingWindow {
         button1.setText(new String("NEXT"));
 
 
+        ImageIcon logo = new ImageIcon("src\\com\\company\\logo.png");
+        JLabel logolabel = new JLabel(logo);
+
+
 
 
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, label, 0, SpringLayout.HORIZONTAL_CENTER, contentPane);
@@ -61,6 +65,8 @@ public class GreetingWindow {
         layout.putConstraint(SpringLayout.SOUTH, button1, -10, SpringLayout.SOUTH, contentPane);   //
         layout.putConstraint(SpringLayout.EAST, button1, -10, SpringLayout.EAST, contentPane);
 
+        layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, logolabel, 0, SpringLayout.HORIZONTAL_CENTER, contentPane);
+        layout.putConstraint(SpringLayout.SOUTH, logolabel, 3, SpringLayout.SOUTH, label);
 
         button1.addActionListener(new ActionListener() {
             @Override
@@ -74,7 +80,7 @@ public class GreetingWindow {
         });
 
 
-
+        contentPane.add(logolabel);
         contentPane.add(button1);
         contentPane.add(label);
         GreatingWindow.setContentPane(contentPane);
