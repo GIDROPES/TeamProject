@@ -1,11 +1,17 @@
 package com.company;
 
+import com.activities.Books;
+import com.activities.Films;
+import com.activities.Music;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ActivitiesQuestion {
+    public static boolean user_mood_is_good;
+
     public static JFrame getActivitiesQuestion(){
 
         JFrame activitiesframe = new JFrame();               // настройки
@@ -14,10 +20,11 @@ public class ActivitiesQuestion {
         Dimension dimension = toolkit.getScreenSize();
         activitiesframe.setBounds(dimension.width / 2 - 475, dimension.height / 2 - 350, 950, 700);
 
-        Container contentPane = activitiesframe.getContentPane();
+        BackgroundPanel contentPane = new BackgroundPanel();
         SpringLayout layout = new SpringLayout();
         contentPane.setLayout(layout);
         contentPane.setPreferredSize(new Dimension(950, 700));
+
         Color buttColor = new Color(47, 79, 79);
         Color colorback = new Color(0, 128, 128);
         Color colorback1 = new Color(224,255,255);
@@ -132,8 +139,20 @@ public class ActivitiesQuestion {
             }
         });
 
+        if (user_mood_is_good == true) {
+            contentPane.setFilePath("src/Backgrounds/GoodMoodBack.png");
+        }
+        else contentPane.setFilePath("src/Backgrounds/BadMoodBack.png");
+
+        activitiesframe.setContentPane(contentPane);
         activitiesframe.setVisible(true);
 
         return activitiesframe;
+    }
+    public void setUserMoodGood(){
+        user_mood_is_good = true;
+    }
+    public void setUserMoodBad(){
+        user_mood_is_good = false;
     }
 }

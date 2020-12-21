@@ -57,8 +57,6 @@ public class GreetingWindow {
         JLabel logolabel = new JLabel(logo);
 
 
-
-
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, label, 0, SpringLayout.HORIZONTAL_CENTER, contentPane);
         layout.putConstraint(SpringLayout.VERTICAL_CENTER, label, 0, SpringLayout.VERTICAL_CENTER, contentPane);
 

@@ -1,28 +1,30 @@
-package com.company;
+package com.activities;
+
+import com.company.ActivitiesQuestion;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Films {
-    public static JFrame getFilms(){
+public class Books {
+    public static JFrame getBooks(){
 
-        JFrame film = new JFrame();
+        JFrame books = new JFrame();
 
-        film.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        books.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension = toolkit.getScreenSize();
-        film.setBounds(dimension.width / 2 - 475, dimension.height / 2 - 350, 950, 700);
+        books.setBounds(dimension.width / 2 - 475, dimension.height / 2 - 350, 950, 700);
 
-        Container contentPane = film.getContentPane();
+        Container contentPane = books.getContentPane();
         SpringLayout layout = new SpringLayout();
         contentPane.setLayout(layout);
         contentPane.setPreferredSize(new Dimension(950, 700));
         Color buttColor = new Color(47, 79, 79);
         Color colorback = new Color(0, 128, 128);
         Color colorback1 = new Color(224,255,255);
-        film.getContentPane().setBackground(colorback);
+        books.getContentPane().setBackground(colorback);
         Font font1 = new Font("Century Gothic", Font.BOLD, 14);
 
         JButton button1 = new JButton("Back");
@@ -45,12 +47,12 @@ public class Films {
             public void actionPerformed(ActionEvent e) {
                 ActivitiesQuestion ActivitiesQuestion = new ActivitiesQuestion();
                 ActivitiesQuestion.getActivitiesQuestion();
-                film.setVisible(false);
+                books.setVisible(false);
             }
         });
 
-        film.setVisible(true);
+        books.setVisible(true);
 
-        return film;
+        return books;
     }
 }
