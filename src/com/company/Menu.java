@@ -99,6 +99,15 @@ public class Menu {
             }
         });
 
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Options Options = new Options();
+                Options.getOptions();
+                Menu.setVisible(false);
+            }
+        });
+
 
 
         contentPane.add(button1);
