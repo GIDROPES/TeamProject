@@ -9,8 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ActivitiesQuestion {
-    public static boolean user_mood_is_good;
+public class ActivitiesQuestion extends  UserMood{
+
 
     public static JFrame getActivitiesQuestion(){
 
@@ -27,7 +27,7 @@ public class ActivitiesQuestion {
 
         Color buttColor = new Color(47, 79, 79);
         Color colorback = new Color(0, 128, 128);
-        Color colorback1 = new Color(224,255,255);
+        Color colorback1 = new Color(235,255,255);
         activitiesframe.getContentPane().setBackground(colorback);
         Font font1 = new Font("Century Gothic", Font.BOLD, 14);
         Font font2 = new Font("Century Gothic", Font.BOLD, 20);
@@ -38,7 +38,7 @@ public class ActivitiesQuestion {
         JButton button2 = new JButton("Films");
         JButton button3 = new JButton("Music");
         JButton button4 = new JButton("Books");
-        JButton button5 = new JButton("Painting");
+        JButton button5 = new JButton("Drawing");
 
 
 
@@ -79,7 +79,7 @@ public class ActivitiesQuestion {
 
 
 
-        button1.setBackground(colorback); button1.setForeground(new Color(255,255,255)); // размеры кнопочек
+        button1.setOpaque(false); button1.setContentAreaFilled(false); button1.setForeground(colorback1);
         button2.setBackground(colorback1); button2.setForeground(new Color(0,0,0));
         button3.setBackground(colorback1); button3.setForeground(new Color(0,0,0));
         button4.setBackground(colorback1); button4.setForeground(new Color(0,0,0));
@@ -139,6 +139,7 @@ public class ActivitiesQuestion {
             }
         });
 
+
         if (user_mood_is_good == true) {
             contentPane.setFilePath("src/Backgrounds/GoodMoodBack.png");
         }
@@ -149,10 +150,5 @@ public class ActivitiesQuestion {
 
         return activitiesframe;
     }
-    public void setUserMoodGood(){
-        user_mood_is_good = true;
-    }
-    public void setUserMoodBad(){
-        user_mood_is_good = false;
-    }
+
 }

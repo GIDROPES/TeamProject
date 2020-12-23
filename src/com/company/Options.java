@@ -119,7 +119,7 @@ public class Options {
 
         JFrame data = new JFrame();
 
-        data.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension = toolkit.getScreenSize();
         data.setBounds(dimension.width / 2 - 230, dimension.height / 2 - 120, 500, 300);
@@ -142,7 +142,6 @@ public class Options {
         JLabel label = new JLabel("Are you sure you want to delete all data?"); // тексты
         JLabel label1 = new JLabel("To confirm your actions, enter CONFIRM");
         JTextField field = new JTextField();                 // Добавили панель для ввода
-        JTextField field1 = new JTextField();
 
         Dimension buttonSize = new Dimension(120, 50);
         Dimension fieldSize = new Dimension(100, 30);
@@ -184,8 +183,10 @@ public class Options {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(field.getText().equals("CONFIRM"));
-
+                if(field.getText().equals("CONFIRM")) {
+                    Data1 ok = new Data1();
+                    ok.getDataOk();
+                }
             }
         });
 

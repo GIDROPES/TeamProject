@@ -4,9 +4,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 
 
 public class FirstQ {
+
+    public static String[] user_name = new String[1];
+
+
+
 
     public JFrame getFirstQ(){
 
@@ -83,15 +89,44 @@ public class FirstQ {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SecondQ SecondQ = new SecondQ();
-                SecondQ.getSecondQ();
+                SecondQ secondQ = new SecondQ();
+                secondQ.getSecondQ();
                 FQ.setVisible(false);
+
+
+                PrintWriter writer = null;
+                try {
+                    writer = new PrintWriter("src/Data/Name.txt");
+                } catch (FileNotFoundException o) {
+                    // TODO Auto-generated catch block
+                    o.printStackTrace();
+                }
+
+                writer.print(field.getText());
+                writer.flush();
+                writer.close();
             }
         });
 
         FQ.setVisible(true);
 
+
         return FQ;
+    }
+
+    public String getFirstSymbol(){
+        return user_name[0];
+    }
+
+    public File getName(){
+        File name = new File("src/Data/Name.txt");
+        try {
+            name.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        FileReader reader;
+        return name;
     }
 }
 

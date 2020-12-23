@@ -2,6 +2,8 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ByeW {
     public static JFrame getByeW(){
@@ -61,6 +63,14 @@ public class ByeW {
         layout.putConstraint(SpringLayout.NORTH, label1, 200,
                 SpringLayout.NORTH, contentPane);
 
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GreetingWindow gw = new GreetingWindow();
+                gw.getGreetingWindow();
+                BW.setVisible(false);
+            }
+        });
 
 
 

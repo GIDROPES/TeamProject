@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class Data1 {
 
-    public static JFrame getData1(){
+    public static JFrame getDataOk(){
 
         JFrame data1 = new JFrame();
 
@@ -62,7 +62,12 @@ public class Data1 {
         layout.putConstraint(SpringLayout.NORTH, label, 40, SpringLayout.NORTH, contentPane);   //
         layout.putConstraint(SpringLayout.WEST, label, 105, SpringLayout.WEST, contentPane);
 
-
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
 
 

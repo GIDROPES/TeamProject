@@ -29,45 +29,106 @@ public class ObjectivesWindow<objectives> {
         contentPane.setLayout(layout);
         contentPane.setPreferredSize(new Dimension(950,700));
 
+        Font font = new Font("Century Gothic", Font.BOLD, 16);
+        Font font1 = new Font("Century Gothic", Font.BOLD, 14);
 
         contentPane.setFilePath("src/Backgrounds/TargetBackReal.png");
 
+        JLabel instruction = new JLabel("If you want to create new objective press \"New\".");
+        instruction.setForeground(new Color(70,70,70));
+        instruction.setFont(font);
+
+        JLabel instructionContinue = new JLabel("You can press \"Add\" to add created objective to panel.");
+        instructionContinue.setForeground(new Color(70,70,70));
+        instructionContinue.setFont(font);
+
         JButton buttonAdd = new JButton("+ ADD");
+        JButton buttonNew = new JButton("New");
+
+        JButton back_button = new JButton("Back");
+
+        back_button.setOpaque(false); back_button.setContentAreaFilled(false); back_button.setForeground(new Color(255,255,255));
+        back_button.setFont(font1);
+
+
         buttonAdd.setOpaque(false);
         buttonAdd.setContentAreaFilled(false);
         buttonAdd.setForeground(new Color(255,255,255));
+
+        buttonNew.setOpaque(false);
+        buttonNew.setContentAreaFilled(false);
+        buttonNew.setForeground(new Color(255,255,255));
 
         JScrollPane objscroll = new JScrollPane(objlist);
         objscroll.setPreferredSize(new Dimension(100, 100));
 
         objlist.setOpaque(false);
         objlist.setForeground(new Color(0,0,0));
-        objlist.setPreferredSize(new Dimension(500,200));
+        objlist.setFont(objlist.getFont().deriveFont(18.0f));
+
+        objscroll.setPreferredSize(new Dimension(400,600));
 
 
         layout.putConstraint(SpringLayout.EAST, buttonAdd, -90, SpringLayout.EAST, contentPane);
         layout.putConstraint(SpringLayout.NORTH, buttonAdd, 20, SpringLayout.NORTH, contentPane);
 
-        layout.putConstraint(SpringLayout.EAST, objlist, -20, SpringLayout.EAST, contentPane);
-        layout.putConstraint(SpringLayout.NORTH, objlist, 40, SpringLayout.NORTH, buttonAdd);
+        layout.putConstraint(SpringLayout.WEST, buttonNew, 70, SpringLayout.WEST, objscroll);
+        layout.putConstraint(SpringLayout.NORTH, buttonNew, 20, SpringLayout.NORTH, contentPane);
 
-        buttonAdd.addActionListener(new ActionListener() {
+        layout.putConstraint(SpringLayout.WEST, instruction, 70, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.NORTH, instruction, 0, SpringLayout.NORTH, objscroll);
+
+        layout.putConstraint(SpringLayout.WEST, instructionContinue, 70, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.NORTH, instructionContinue, 4, SpringLayout.SOUTH, instruction);
+
+        //layout.putConstraint(SpringLayout.EAST, objlist, -20, SpringLayout.EAST, contentPane);
+        //layout.putConstraint(SpringLayout.NORTH, objlist, 40, SpringLayout.NORTH, buttonAdd);
+
+        layout.putConstraint(SpringLayout.EAST, objscroll, -20, SpringLayout.EAST, contentPane);
+        layout.putConstraint(SpringLayout.NORTH, objscroll, 40, SpringLayout.NORTH, buttonAdd);
+
+        layout.putConstraint(SpringLayout.SOUTH, back_button, -10, SpringLayout.SOUTH, contentPane);   // Кнопка навигации, её положение
+        layout.putConstraint(SpringLayout.WEST, back_button, 10, SpringLayout.WEST, contentPane);
+
+        buttonNew.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ObjectivesWindow textwindow = new ObjectivesWindow();
                 textwindow.getMiniField();
-                for ( int i = 0; i < objectives.length; i++ ){
-                   // model.addElement(objectives[i]);
-                    //objectives[i] = null;
-                }
             }
         });
 
+        buttonAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+                for ( int i = 0; i <= objectives.length; i++ ){
+                    model.addElement(objectives[iter]);
+                    objectives[iter] = null;
+                }
 
-        contentPane.add(objlist);
+            }
+        });
+
+        back_button.addActionListener(new ActionListener() {  //переход назад в менюшку
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu Menu = new Menu();
+                Menu.getMenu();
+                obwin.setVisible(false);
+
+            }
+        });
+
+        objscroll.createVerticalScrollBar();
+        objscroll.setFont(font);
+
+        contentPane.add(instructionContinue);
+        contentPane.add(instruction);
         contentPane.add(objscroll);
+        contentPane.add(buttonNew);
         contentPane.add(buttonAdd);
+        contentPane.add(back_button);
         obwin.setContentPane(contentPane);
         obwin.setVisible(true);
         return obwin;
@@ -116,14 +177,9 @@ public class ObjectivesWindow<objectives> {
         buttonOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                while (iter==0){
-                    objectives[iter] = textField.getText();
-                    model.addElement(objectives[iter]);
-                    objectives[iter] = null;
-                    iter++;
-                    break;
-                }
-                iter--;
+
+                objectives[iter] = textField.getText();
+
                 miniField.setVisible(false);
             }
         });

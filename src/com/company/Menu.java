@@ -108,7 +108,12 @@ public class Menu {
             }
         });
 
-
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
         contentPane.add(button1);
         contentPane.add(button2);
