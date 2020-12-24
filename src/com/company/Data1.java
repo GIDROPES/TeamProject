@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Data1 {
 
@@ -64,7 +67,22 @@ public class Data1 {
 
         button1.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)
+            {
+                FileWriter fwOb = null;
+                try {
+                    fwOb = new FileWriter("src/Data/Name.txt", false);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                PrintWriter pwOb = new PrintWriter(fwOb, false);
+                pwOb.flush();
+                pwOb.close();
+                try {
+                    fwOb.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
                 System.exit(0);
             }
         });

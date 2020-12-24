@@ -4,10 +4,38 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 
 public class Menu {
 
     public JFrame getMenu() {
+
+        String firstLine = null;
+
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream("src/Data/Name.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        InputStreamReader isr = null;
+
+        try {
+            isr = new InputStreamReader(fis,"UTF-8");              //Подключил чтение файлов
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        BufferedReader br = new BufferedReader(isr);
+
+        try {
+            firstLine = br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         JFrame Menu = new JFrame();
         Menu.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -32,7 +60,7 @@ public class Menu {
         JButton button2 = new JButton("OBJECTIVES");
         JButton button3 = new JButton("OPTIONS");             //насоздавал кнопок
         JButton button4 = new JButton("Exit");
-        JButton button5 = new JButton("MOOD CALENDAR");
+        JButton button5 = new JButton();
 
         layout.putConstraint(SpringLayout.NORTH, button1, 200, SpringLayout.NORTH, contentPane);    //
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, button1, 0, SpringLayout.HORIZONTAL_CENTER, contentPane);
@@ -75,6 +103,8 @@ public class Menu {
         button5.setContentAreaFilled(false);
         button5.setForeground(new Color(255,255,255));
 
+        button5.setText(firstLine);
+
         button4.setOpaque(false);
         button4.setContentAreaFilled(false);
         button4.setForeground(new Color(255,255,255));
@@ -115,6 +145,22 @@ public class Menu {
             }
         });
 
+        Options optFunc = new Options();
+        ImageIcon avatar = new ImageIcon(optFunc.getAvatarPath());
+        JLabel avatarLabel = new JLabel(avatar);
+        JLabel emptyAvatar = new JLabel("You can choose avatar at settings");
+
+
+
+
+        layout.putConstraint(SpringLayout.NORTH, emptyAvatar, 300, SpringLayout.NORTH, contentPane);   //
+        layout.putConstraint(SpringLayout.WEST, emptyAvatar, 100, SpringLayout.WEST, contentPane);
+
+        layout.putConstraint(SpringLayout.NORTH, avatarLabel, 300, SpringLayout.NORTH, contentPane);   //
+        layout.putConstraint(SpringLayout.WEST, avatarLabel, 100, SpringLayout.WEST, contentPane);
+
+        if (avatarLabel.getText().equals("Default")) { contentPane.add(emptyAvatar); }
+        else { contentPane.add(avatarLabel); }
         contentPane.add(button1);
         contentPane.add(button2);
         contentPane.add(button3);
