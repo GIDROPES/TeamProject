@@ -15,10 +15,14 @@ public class ByeW {
         Dimension dimension = toolkit.getScreenSize();
         BW.setBounds(dimension.width / 2 - 475, dimension.height / 2 - 350, 950, 700);
 
-        Container contentPane = BW.getContentPane();
+
+        BackgroundPanel contentPane = new BackgroundPanel();
         SpringLayout layout = new SpringLayout();
         contentPane.setLayout(layout);
         contentPane.setPreferredSize(new Dimension(950, 700));
+
+        contentPane.setFilePath("src/com/company/HelloBackground.png");
+
         Color buttColor = new Color(47, 79, 79);
         Color colorback = new Color(0, 128, 128);
         BW.getContentPane().setBackground(colorback);
@@ -31,7 +35,9 @@ public class ByeW {
         layout.putConstraint(SpringLayout.NORTH, button1, 300, SpringLayout.NORTH, contentPane);   //
         layout.putConstraint(SpringLayout.WEST, button1, 360, SpringLayout.WEST, contentPane);
 
-        button1.setBackground(colorback); button1.setForeground(new Color(255,255,255));
+        button1.setOpaque(false);
+        button1.setContentAreaFilled(false);
+        button1.setForeground(new Color(255,255,255));
 
         Dimension buttonSize = new Dimension(260,120);
 
@@ -46,6 +52,10 @@ public class ByeW {
 
         label.setFont(font2);
         label1.setFont(font2);
+
+
+        label.setForeground(new Color(255,255,255));
+        label1.setForeground(new Color(255,255,255));
 
 
 
@@ -75,7 +85,7 @@ public class ByeW {
 
 
 
-
+        BW.setContentPane(contentPane);
         BW.setVisible(true);
 
         return BW;

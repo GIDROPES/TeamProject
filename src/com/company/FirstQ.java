@@ -23,10 +23,13 @@ public class FirstQ {
         FQ.setBounds(dimension.width / 2 - 475, dimension.height / 2 - 350, 950, 700);
 
 
-        Container contentPane = FQ.getContentPane();
+        BackgroundPanel contentPane = new BackgroundPanel();
         SpringLayout layout = new SpringLayout();
         contentPane.setLayout(layout);
         contentPane.setPreferredSize(new Dimension(950, 700));
+
+        contentPane.setFilePath("src/com/company/HelloBackground.png");
+
         Color buttColor = new Color(47, 79, 79);
         Color colorback = new Color(0, 128, 128);
         FQ.getContentPane().setBackground(colorback);
@@ -47,12 +50,19 @@ public class FirstQ {
 
         button1.setFont(font1);
 
+        button1.setOpaque(false);
+        button1.setContentAreaFilled(false);
+        button1.setForeground(new Color(255,255,255));
+
 
         JLabel label = new JLabel("We invite you to answer a number of questions"); // тексты
         JLabel label1 = new JLabel("What's your name?");
 
         label.setFont(font2);
         label1.setFont(font2);
+
+        label.setForeground(new Color(255,255,255));
+        label1.setForeground(new Color(255,255,255));
 
         JTextField field = new JTextField();                 // Добавили панель для ввода
 
@@ -108,6 +118,7 @@ public class FirstQ {
             }
         });
 
+        FQ.setContentPane(contentPane);
         FQ.setVisible(true);
 
 
