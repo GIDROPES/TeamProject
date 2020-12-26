@@ -14,9 +14,6 @@ public class Options {
 
     private int key;
 
-    private String path = null;
-
-
     public static JFrame getOptions() {
 
         JFrame opt = new JFrame();
@@ -302,7 +299,6 @@ public class Options {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ava.setVisible(false);
-                ava.setVisible(false);
             }
         });
 
@@ -368,19 +364,16 @@ public class Options {
             o.printStackTrace();
         }
 
-        for (int i = 0; i < buttNames.length; i++){
-            if(i == key){
-                writer.print(buttNames[i]);
-                writer.flush();
-                writer.close();
-            }
-        }
+        writer.print(buttNames[key]);
+        writer.flush();
+        writer.close();
+
     }
 
     public String getAvatarPath(){
-        String path = null;
-        String writedAvatarName = null;
+        String path = "";
 
+        String writedAvatarName = "";
 
         FileInputStream fis = null;
         try {
@@ -410,9 +403,9 @@ public class Options {
                 path = avatarPaths[i];
                 break;
             }
-            else path = "Default";
+            if (writedAvatarName.equals("")){ path = "Default"; }
         }
-
         return path;
+
     }
 }

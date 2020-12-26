@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class ByeW {
     public static JFrame getByeW(){
@@ -23,7 +25,6 @@ public class ByeW {
 
         contentPane.setFilePath("src/com/company/HelloBackground.png");
 
-        Color buttColor = new Color(47, 79, 79);
         Color colorback = new Color(0, 128, 128);
         BW.getContentPane().setBackground(colorback);
         Font font1 = new Font("Century Gothic", Font.BOLD, 14);
@@ -76,6 +77,18 @@ public class ByeW {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PrintWriter writer = null;
+                try {
+                    writer = new PrintWriter("src/Data/Avatar.txt");
+                } catch (FileNotFoundException o) {
+                    // TODO Auto-generated catch block
+                    o.printStackTrace();
+                }
+
+                writer.print("Cat");
+                writer.flush();
+                writer.close();
+
                 GreetingWindow gw = new GreetingWindow();
                 gw.getGreetingWindow();
                 BW.setVisible(false);

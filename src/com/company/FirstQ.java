@@ -99,8 +99,8 @@ public class FirstQ {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SecondQ secondQ = new SecondQ();
-                secondQ.getSecondQ();
+                ByeW byeW = new ByeW();
+                byeW.getByeW();
                 FQ.setVisible(false);
 
 

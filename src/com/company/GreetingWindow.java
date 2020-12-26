@@ -8,7 +8,8 @@ import java.util.Random;
 
 public class GreetingWindow {
 
-    private String GreetingWords[] = {"Hello, are you ok?", "Hey, everything will be fine", "Long time no see", "Glad to see you" };
+    private String GreetingWords[] = {"Hello, are you ok?", "Hey, everything will be fine", "Long time no see", "Glad to see you","Just wait",
+    "Lets do something!", "What about drawing this evening?","We will make it!"};
 
     public JFrame getGreetingWindow() {
         JFrame GreatingWindow = new JFrame();

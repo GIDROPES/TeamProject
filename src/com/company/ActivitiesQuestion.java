@@ -1,15 +1,13 @@
 package com.company;
 
-import com.activities.Books;
-import com.activities.Films;
-import com.activities.Music;
+import com.activities.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ActivitiesQuestion extends  UserMood{
+public class ActivitiesQuestion extends UserMood {
 
 
     public static JFrame getActivitiesQuestion(){
@@ -115,8 +113,12 @@ public class ActivitiesQuestion extends  UserMood{
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Films Films = new Films();
-                Films.getFilms();
+                Films films = new Films();
+
+                if (user_mood_is_good) films.setUserMoodGood();
+                else films.setUserMoodBad();
+
+                films.getFilms();
                 activitiesframe.setVisible(false);
             }
         });
@@ -124,8 +126,12 @@ public class ActivitiesQuestion extends  UserMood{
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Music Music = new Music();
-                Music.getMusic();
+                Music music = new Music();
+                music.getMusic();
+
+                if (user_mood_is_good) music.setUserMoodGood();
+                else music.setUserMoodBad();
+
                 activitiesframe.setVisible(false);
             }
         });
@@ -133,14 +139,29 @@ public class ActivitiesQuestion extends  UserMood{
         button4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Books Books = new Books();
-                Books.getBooks();
+                Books books = new Books();
+
+                if (user_mood_is_good) books.setUserMoodGood();
+                else books.setUserMoodBad();
+
+                books.getBooks();
                 activitiesframe.setVisible(false);
             }
         });
 
+        button5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Drawing drawing = new Drawing();
 
-        if (user_mood_is_good == true) {
+                if (user_mood_is_good) drawing.setUserMoodGood();
+                else drawing.setUserMoodBad();
+
+                drawing.getDrawingWindow();
+            }
+        });
+
+        if (user_mood_is_good) {                                                    //При условии, что настроение пользователя хорошее
             contentPane.setFilePath("src/Backgrounds/GoodMoodBack.png");
         }
         else contentPane.setFilePath("src/Backgrounds/BadMoodBack.png");

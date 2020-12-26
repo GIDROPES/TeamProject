@@ -70,8 +70,6 @@ public class Menu {
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, button3, 0, SpringLayout.HORIZONTAL_CENTER, contentPane);
         layout.putConstraint(SpringLayout.SOUTH, button4, -10, SpringLayout.SOUTH, contentPane);   //
         layout.putConstraint(SpringLayout.EAST, button4, -10, SpringLayout.EAST, contentPane);
-        layout.putConstraint(SpringLayout.NORTH, button5, 400, SpringLayout.NORTH, contentPane);   //
-        layout.putConstraint(SpringLayout.WEST, button5, 100, SpringLayout.WEST, contentPane);
 
         Dimension buttonSize = new Dimension(160,40);
 
@@ -79,7 +77,7 @@ public class Menu {
         button2.setPreferredSize(buttonSize);
         button3.setPreferredSize(buttonSize);
         button4.setPreferredSize(buttonSize);
-        button5.setPreferredSize(new Dimension(200,40));
+        button5.setPreferredSize(new Dimension(250,40));
 
         button1.setFont(font1);
         button2.setFont(font1);
@@ -150,17 +148,30 @@ public class Menu {
         JLabel avatarLabel = new JLabel(avatar);
         JLabel emptyAvatar = new JLabel("You can choose avatar at settings");
 
+        emptyAvatar.setFont(font1);
+        emptyAvatar.setForeground(new Color(255,255,255));
 
+        layout.putConstraint(SpringLayout.NORTH, button5, 400, SpringLayout.NORTH, contentPane);   //
+        layout.putConstraint(SpringLayout.WEST, button5, 50, SpringLayout.WEST, contentPane);
 
+        layout.putConstraint(SpringLayout.NORTH, emptyAvatar, 50, SpringLayout.NORTH, contentPane);   //
+        layout.putConstraint(SpringLayout.WEST, emptyAvatar, 50, SpringLayout.WEST, contentPane);
 
-        layout.putConstraint(SpringLayout.NORTH, emptyAvatar, 300, SpringLayout.NORTH, contentPane);   //
-        layout.putConstraint(SpringLayout.WEST, emptyAvatar, 100, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.NORTH, avatarLabel, 100, SpringLayout.NORTH, contentPane);   //
+        layout.putConstraint(SpringLayout.WEST, avatarLabel, 50, SpringLayout.WEST, contentPane);
 
-        layout.putConstraint(SpringLayout.NORTH, avatarLabel, 300, SpringLayout.NORTH, contentPane);   //
-        layout.putConstraint(SpringLayout.WEST, avatarLabel, 100, SpringLayout.WEST, contentPane);
+        Font arialBlack = new Font("Arial Black", Font.BOLD, 38);
+        JLabel ourLabel = new JLabel("VEVAMA 2021");
 
-        if (avatarLabel.getText().equals("Default")) { contentPane.add(emptyAvatar); }
-        else { contentPane.add(avatarLabel); }
+        ourLabel.setForeground(new Color(200,200,200));
+        ourLabel.setFont(arialBlack);
+
+        layout.putConstraint(SpringLayout.NORTH, ourLabel, 200, SpringLayout.NORTH, button5);   //
+        layout.putConstraint(SpringLayout.WEST, ourLabel, 30, SpringLayout.WEST, contentPane);
+
+        contentPane.add(ourLabel);
+        contentPane.add(emptyAvatar);
+        contentPane.add(avatarLabel);
         contentPane.add(button1);
         contentPane.add(button2);
         contentPane.add(button3);
@@ -172,5 +183,4 @@ public class Menu {
         Menu.setVisible(true);
         return Menu;
     }
-
 }

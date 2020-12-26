@@ -1,14 +1,13 @@
 package com.activities;
 
 import com.company.BackgroundPanel;
-import com.company.UserMood;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Drawing extends UserMood {
 
-    public static JFrame getDrawingWindow(){
+    public JFrame getDrawingWindow(){
         JFrame drawingW = new JFrame();               // настройки
         drawingW.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -20,6 +19,13 @@ public class Drawing extends UserMood {
         contentPane.setLayout(layout);
         contentPane.setPreferredSize(new Dimension(950, 700));
 
+        if (user_mood_is_good) {                                                    //При условии, что настроение пользователя хорошее
+            contentPane.setFilePath("src/Backgrounds/GoodMoodBack.png");
+        }
+        else contentPane.setFilePath("src/Backgrounds/BadMoodBack.png");
+
+        drawingW.setContentPane(contentPane);
+        drawingW.setVisible(true);
         return drawingW;
     }
 

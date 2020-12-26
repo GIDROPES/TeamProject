@@ -1,4 +1,4 @@
-package com.company;
+package com.activities;
 
 public class UserMood {
     public static boolean user_mood_is_good; //устанавливается через сеттер в другом окне

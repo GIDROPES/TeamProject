@@ -1,14 +1,15 @@
 package com.activities;
 
 import com.company.ActivitiesQuestion;
+import com.company.BackgroundPanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Music {
-    public static JFrame getMusic(){
+public class Music extends UserMood {
+    public  JFrame getMusic(){
 
         JFrame music = new JFrame();
 
@@ -17,14 +18,12 @@ public class Music {
         Dimension dimension = toolkit.getScreenSize();
         music.setBounds(dimension.width / 2 - 475, dimension.height / 2 - 350, 950, 700);
 
-        Container contentPane = music.getContentPane();
+        BackgroundPanel contentPane = new BackgroundPanel();
         SpringLayout layout = new SpringLayout();
         contentPane.setLayout(layout);
         contentPane.setPreferredSize(new Dimension(950, 700));
-        Color buttColor = new Color(47, 79, 79);
-        Color colorback = new Color(0, 128, 128);
-        Color colorback1 = new Color(224,255,255);
-        music.getContentPane().setBackground(colorback);
+
+
         Font font1 = new Font("Century Gothic", Font.BOLD, 14);
 
         JButton button1 = new JButton("Back");
@@ -37,8 +36,9 @@ public class Music {
         button1.setPreferredSize(buttonSize);         // кнопочки размер
 
         button1.setFont(font1);
-
-        button1.setBackground(colorback); button1.setForeground(new Color(255,255,255)); // размеры кнопочек
+        button1.setOpaque(false);
+        button1.setOpaque(false);
+        button1.setForeground(new Color(255,255,255)); // размеры кнопочек
 
         contentPane.add(button1);
 
@@ -51,6 +51,13 @@ public class Music {
             }
         });
 
+        if (user_mood_is_good) {                                                    //При условии, что настроение пользователя хорошее
+            contentPane.setFilePath("src/Backgrounds/GoodMoodBack.png");
+        }
+        else contentPane.setFilePath("src/Backgrounds/BadMoodBack.png");
+
+
+        music.setContentPane(contentPane);
         music.setVisible(true);
 
         return music;
