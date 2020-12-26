@@ -142,6 +142,7 @@ public class Books extends UserMood {
         }
         else {
             contentPane.setFilePath("src/Backgrounds/BadMoodBack.png");
+            phrase.setForeground(Color.black);
             contentPane.add(bookName2);
             contentPane.add(coverPic2);
         }
