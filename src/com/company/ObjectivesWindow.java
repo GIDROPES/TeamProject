@@ -4,16 +4,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.io.*;
+
 
 public class ObjectivesWindow<objectives> {
 
-    static int iter = 0;
+    static DefaultListModel<String> model = new DefaultListModel<>();
+    static JList<String> objlist = new JList<>( model );
 
-    public static String[] objectives = new String[1];
-    DefaultListModel<String> model = new DefaultListModel<>();
-    JList<String> objlist = new JList<>( model );
 
+
+    public ObjectivesWindow() throws FileNotFoundException {
+    }
 
     public JFrame getObjectivesWindow(){
         JFrame obwin = new JFrame();
@@ -21,6 +23,7 @@ public class ObjectivesWindow<objectives> {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension = toolkit.getScreenSize();
         obwin.setBounds(dimension.width/2 - 475, dimension.height/2 - 350, 950,700);
+
 
 
 
@@ -93,19 +96,49 @@ public class ObjectivesWindow<objectives> {
         buttonNew.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ObjectivesWindow textwindow = new ObjectivesWindow();
+
+                ObjectivesWindow textwindow = null;
+                try {
+                    textwindow = new ObjectivesWindow();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
                 textwindow.getMiniField();
+
             }
         });
 
         buttonAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String newObjective = null;
 
-                for ( int i = 0; i <= objectives.length; i++ ){
-                    model.addElement(objectives[iter]);
-                    objectives[iter] = null;
+                FileInputStream fis = null;
+                try {
+                    fis = new FileInputStream("src/Data/Objectives.txt");
+                } catch (FileNotFoundException c) {
+                    c.printStackTrace();
                 }
+
+                InputStreamReader isr = null;
+
+                try {
+                    isr = new InputStreamReader(fis,"UTF-8");
+                } catch (UnsupportedEncodingException a) {
+                    a.printStackTrace();
+                }
+
+                BufferedReader br = new BufferedReader(isr);
+
+                try {
+                    newObjective = br.readLine();
+                } catch (IOException f) {
+                    f.printStackTrace();
+                }
+
+
+                model.addElement(newObjective);
+
 
             }
         });
@@ -113,6 +146,7 @@ public class ObjectivesWindow<objectives> {
         back_button.addActionListener(new ActionListener() {  //переход назад в менюшку
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 Menu Menu = new Menu();
                 Menu.getMenu();
                 obwin.setVisible(false);
@@ -151,6 +185,7 @@ public class ObjectivesWindow<objectives> {
         Dimension dimension = toolkit.getScreenSize();
         miniField.setBounds(dimension.width/2 - 200, dimension.height/2 - 100, 400,200);
 
+
         BackgroundPanel contentPane = new BackgroundPanel();      //НАША ПАНЕЛЬКА С ФОНОМ В ВИДЕ КАРТИНКИ
         SpringLayout layout = new SpringLayout();
         contentPane.setLayout(layout);
@@ -174,12 +209,31 @@ public class ObjectivesWindow<objectives> {
         layout.putConstraint(SpringLayout.NORTH, buttonOk, 23, SpringLayout.SOUTH,textField);
 
 
+
         buttonOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                objectives[iter] = textField.getText();
+                String user_objective = textField.getText();
 
+                BufferedWriter writerB = null;
+
+                {
+                    try {
+                        writerB = new BufferedWriter(new FileWriter("src/Data/Objectives.txt"));
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+
+
+                    try {
+                        writerB.write(user_objective + "\r\n");
+                        writerB.newLine();
+                        writerB.close();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
                 miniField.setVisible(false);
             }
         });

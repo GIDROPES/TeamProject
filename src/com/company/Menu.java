@@ -121,7 +121,12 @@ public class Menu {
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ObjectivesWindow ob = new ObjectivesWindow();
+                ObjectivesWindow ob = null;
+                try {
+                    ob = new ObjectivesWindow();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
                 ob.getObjectivesWindow();
                 Menu.setVisible(false);
             }
@@ -146,7 +151,7 @@ public class Menu {
         Options optFunc = new Options();
         ImageIcon avatar = new ImageIcon(optFunc.getAvatarPath());
         JLabel avatarLabel = new JLabel(avatar);
-        JLabel emptyAvatar = new JLabel("You can choose avatar at settings");
+        JLabel emptyAvatar = new JLabel("<html> You can choose avatar <br> at settings</html>");
 
         emptyAvatar.setFont(font1);
         emptyAvatar.setForeground(new Color(255,255,255));

@@ -12,7 +12,7 @@ import java.util.Random;
 public class Music extends UserMood {
     String[] randomPhrases = {"So, lets listen...", "We recommend to listen this album","Good choice for you","Listen this ones:"};
 
-    String[] gmAlbumName = {"Travis Scott: ASTROWORLD", "Lil Skies: Shelby", "Basic Boy: SUPERWORLD", "МС Сенечка: Звуки", "Антоха МС: Советы для МЖ",
+    String[] gmAlbumName = {"Travis Scott: ASTROWORLD", "Lil Skies: Shelby", "Basic Boy: SUPERWORLD", "МС Сенечка: Звуки", "<html>Антоха МС:<br>Советы для молодожёнов</html>",
             "Dayglow: Fuzzybrain"};
 
     String[] gmAlbumCoverPath = {"src/Music/Good/Travis Scott.png","src/Music/Good/Lil Skies.png","src/Music/Good/Basic Boy.png",
@@ -117,6 +117,10 @@ public class Music extends UserMood {
             }
         });
 
+        ImageIcon image = new ImageIcon("src/Data/music_icon.png");
+        JLabel icon = new JLabel(image);
+
+        contentPane.add(icon);
 
         layout.putConstraint(SpringLayout.WEST, albumName1, 40, SpringLayout.WEST, contentPane);   //
         layout.putConstraint(SpringLayout.VERTICAL_CENTER, albumName1, 0, SpringLayout.VERTICAL_CENTER, contentPane);
@@ -130,10 +134,10 @@ public class Music extends UserMood {
         layout.putConstraint(SpringLayout.EAST, coverPic2, -80, SpringLayout.EAST, contentPane);   //
         layout.putConstraint(SpringLayout.NORTH, coverPic2, 250, SpringLayout.NORTH, contentPane);
 
-        albumName1.setForeground(Color.white);
+        albumName1.setForeground(new Color(210,210,210));
         albumName1.setFont(font2);
 
-        albumName2.setForeground(Color.white);
+        albumName2.setForeground(new Color(210,210,210));
         albumName2.setFont(font2);
 
         if (user_mood_is_good) {                                                    //При условии, что настроение пользователя хорошее

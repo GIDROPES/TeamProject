@@ -23,7 +23,6 @@ public class ActivitiesQuestion extends UserMood {
         contentPane.setLayout(layout);
         contentPane.setPreferredSize(new Dimension(950, 700));
 
-        Color buttColor = new Color(47, 79, 79);
         Color colorback = new Color(0, 128, 128);
         Color colorback1 = new Color(235,255,255);
         activitiesframe.getContentPane().setBackground(colorback);
@@ -53,7 +52,7 @@ public class ActivitiesQuestion extends UserMood {
         layout.putConstraint(SpringLayout.WEST, button5, 340, SpringLayout.WEST, contentPane);
 
 
-        JLabel label = new JLabel("Choose your type of activity");
+        JLabel label = new JLabel("What do you want to do now?");
 
         label.setFont(font2);
 
@@ -158,13 +157,15 @@ public class ActivitiesQuestion extends UserMood {
                 else drawing.setUserMoodBad();
 
                 drawing.getDrawingWindow();
+                activitiesframe.setVisible(false);
             }
         });
 
         if (user_mood_is_good) {                                                    //При условии, что настроение пользователя хорошее
             contentPane.setFilePath("src/Backgrounds/GoodMoodBack.png");
+            label.setForeground(Color.white);
         }
-        else contentPane.setFilePath("src/Backgrounds/BadMoodBack.png");
+        else {contentPane.setFilePath("src/Backgrounds/BadMoodBack.png"); label.setForeground(Color.BLACK); }
 
         activitiesframe.setContentPane(contentPane);
         activitiesframe.setVisible(true);

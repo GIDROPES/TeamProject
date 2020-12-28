@@ -90,6 +90,11 @@ public class Books extends UserMood {
         contentPane.add(button1);
         contentPane.add(generateButt);
 
+        ImageIcon image = new ImageIcon("src/Data/book_icon.png");
+        JLabel icon = new JLabel(image);
+
+        contentPane.add(icon);
+
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -129,10 +134,10 @@ public class Books extends UserMood {
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, bookName2, 0, SpringLayout.HORIZONTAL_CENTER, contentPane);   //
         layout.putConstraint(SpringLayout.SOUTH, bookName2, -20, SpringLayout.NORTH, generateButt);
 
-        bookName1.setForeground(Color.white);
+        bookName1.setForeground(new Color(210,210,210));
         bookName1.setFont(font2);
 
-        bookName2.setForeground(Color.white);
+        bookName2.setForeground(new Color(210,210,210));
         bookName2.setFont(font2);
 
         if (user_mood_is_good) {                                                    //При условии, что настроение пользователя хорошее

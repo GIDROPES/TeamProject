@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class Main {
 
@@ -38,6 +39,5 @@ public class Main {
             GreetingWindow window1 = new GreetingWindow();
             window1.getGreetingWindow();
         }
-
     }
 }
