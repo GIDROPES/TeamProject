@@ -83,6 +83,21 @@ public class Data1 {
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
+                FileWriter fwOb1 = null;
+                try {
+                    fwOb1 = new FileWriter("src/Data/Objectives.txt", false);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                PrintWriter pwOb1 = new PrintWriter(fwOb1, false);
+                pwOb1.flush();
+                pwOb1.close();
+                try {
+                    fwOb1.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
                 System.exit(0);
             }
         });

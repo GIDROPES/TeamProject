@@ -112,7 +112,7 @@ public class MoodQuestion {
 
 
 
-        layout.putConstraint(SpringLayout.WEST , label, 400, SpringLayout.WEST , contentPane);
+        layout.putConstraint(SpringLayout.WEST , label, 380, SpringLayout.WEST , contentPane);
         layout.putConstraint(SpringLayout.NORTH, label, 150, SpringLayout.NORTH, contentPane);
 
         contentPane.add(label);
