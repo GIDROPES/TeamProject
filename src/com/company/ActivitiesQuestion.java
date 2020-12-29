@@ -43,13 +43,13 @@ public class ActivitiesQuestion extends UserMood {
         layout.putConstraint(SpringLayout.SOUTH, button1, -10, SpringLayout.SOUTH, contentPane);   //
         layout.putConstraint(SpringLayout.WEST, button1, 10, SpringLayout.WEST, contentPane);
         layout.putConstraint(SpringLayout.NORTH, button2, 170, SpringLayout.NORTH, contentPane);
-        layout.putConstraint(SpringLayout.WEST, button2, 340, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.WEST, button2, 330, SpringLayout.WEST, contentPane);
         layout.putConstraint(SpringLayout.NORTH, button3, 250, SpringLayout.NORTH, contentPane);
-        layout.putConstraint(SpringLayout.WEST, button3, 340, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.WEST, button3, 330, SpringLayout.WEST, contentPane);
         layout.putConstraint(SpringLayout.NORTH, button4, 330, SpringLayout.NORTH, contentPane);
-        layout.putConstraint(SpringLayout.WEST, button4, 340, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.WEST, button4, 330, SpringLayout.WEST, contentPane);
         layout.putConstraint(SpringLayout.NORTH, button5, 410, SpringLayout.NORTH, contentPane);
-        layout.putConstraint(SpringLayout.WEST, button5, 340, SpringLayout.WEST, contentPane);
+        layout.putConstraint(SpringLayout.WEST, button5, 330, SpringLayout.WEST, contentPane);
 
 
         JLabel label = new JLabel("What do you want to do now?");

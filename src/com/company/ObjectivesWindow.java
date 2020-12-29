@@ -5,14 +5,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 
 public class ObjectivesWindow<objectives> {
 
-    static DefaultListModel<String> model = new DefaultListModel<>();
-    static JList<String> objlist = new JList<>( model );
+    DefaultListModel<String> model = new DefaultListModel<>();
+    JList<String> objlist = new JList<>( model );
 
-
+    static int counter = 0;
 
     public ObjectivesWindow() throws FileNotFoundException {
     }
@@ -23,6 +27,22 @@ public class ObjectivesWindow<objectives> {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension = toolkit.getScreenSize();
         obwin.setBounds(dimension.width/2 - 475, dimension.height/2 - 350, 950,700);
+
+        Path path = Paths.get("src/Data/Objectives.txt");
+
+
+        List<String> allLines;
+        try {
+            allLines = Files.readAllLines(path);
+            if (allLines.size() != 0) {
+                for (Integer i = 0; i < allLines.size(); i++) {
+                    String newObjective = allLines.get(i); // вот тут получаем последнюю строку
+                    model.addElement(newObjective + "\n\r");
+                }
+            }
+        } catch (IOException g) {
+            g.printStackTrace();
+        }
 
 
 
@@ -111,34 +131,19 @@ public class ObjectivesWindow<objectives> {
         buttonAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String newObjective = null;
+                Path path = Paths.get("src/Data/Objectives.txt");
 
-                FileInputStream fis = null;
+
+                List<String> allLines = null;
                 try {
-                    fis = new FileInputStream("src/Data/Objectives.txt");
-                } catch (FileNotFoundException c) {
-                    c.printStackTrace();
-                }
-
-                InputStreamReader isr = null;
-
-                try {
-                    isr = new InputStreamReader(fis,"UTF-8");
-                } catch (UnsupportedEncodingException a) {
-                    a.printStackTrace();
-                }
-
-                BufferedReader br = new BufferedReader(isr);
-
-                try {
-                    newObjective = br.readLine();
-                } catch (IOException f) {
-                    f.printStackTrace();
+                    allLines = Files.readAllLines(path);
+                } catch (IOException g) {
+                    g.printStackTrace();
                 }
 
 
-                model.addElement(newObjective);
-
+            String newObjective = allLines.get(allLines.size()-1); // вот тут получаем последнюю строку
+                model.addElement(newObjective + "\n\r");
 
             }
         });
@@ -215,25 +220,17 @@ public class ObjectivesWindow<objectives> {
             public void actionPerformed(ActionEvent e) {
 
                 String user_objective = textField.getText();
+                model.addElement(user_objective);
 
-                BufferedWriter writerB = null;
-
-                {
-                    try {
-                        writerB = new BufferedWriter(new FileWriter("src/Data/Objectives.txt"));
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
-
-
-                    try {
-                        writerB.write(user_objective + "\r\n");
-                        writerB.newLine();
-                        writerB.close();
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
+                try {
+                    FileWriter fileWriter = new FileWriter("src/Data/Objectives.txt", true);
+                    fileWriter.write(user_objective+"\n");
+                    fileWriter.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
+
+
                 miniField.setVisible(false);
             }
         });
@@ -245,5 +242,4 @@ public class ObjectivesWindow<objectives> {
         miniField.setVisible(true);
         return miniField;
     }
-
 }
