@@ -27,10 +27,10 @@ public class Books extends UserMood {
     ImageIcon cover1 = new ImageIcon(getIconPath1());
     JLabel coverPic1 = new JLabel(cover1);
 
-    String[] bmBookName = {"Мы же взрослые люди","Плюс жизнь","Искупление","Английский пациент","Узкая дорога на дальний север","Если я останусь"};
+    String[] bmBookName = {"Мы же взрослые люди","Плюс жизнь","Искупление","Английский пациент","Узкая дорога на дальний север","Если я останусь","Ветер Тактика"};
 
     String[] bmBookCoverPath = {"src/Books/Bad/Мы же взрослые люди.png","src/Books/Bad/Плюс жизнь.png","src/Books/Bad/Искупление.png",
-            "src/Books/Bad/Английский пациент.png","src/Books/Bad/Узкая дорога.png","src/Books/Bad/Если я останусь.png"};
+            "src/Books/Bad/Английский пациент.png","src/Books/Bad/Узкая дорога.png","src/Books/Bad/Если я останусь.png","src/Books/Bad/Ветер.png"};
 
     String book2 = bmBookName[random.nextInt(bmBookName.length)];
     JLabel bookName2 = new JLabel(book2);

@@ -70,6 +70,12 @@ public class ObjectivesWindow<objectives> {
 
         JButton back_button = new JButton("Back");
 
+        JButton clear_all = new JButton("CLEAR ALL");
+
+        clear_all.setOpaque(false);
+        clear_all.setContentAreaFilled(false);
+        clear_all.setForeground(new Color(255,255,255));
+
         back_button.setOpaque(false); back_button.setContentAreaFilled(false); back_button.setForeground(new Color(255,255,255));
         back_button.setFont(font1);
 
@@ -104,8 +110,8 @@ public class ObjectivesWindow<objectives> {
         layout.putConstraint(SpringLayout.WEST, instructionContinue, 70, SpringLayout.WEST, contentPane);
         layout.putConstraint(SpringLayout.NORTH, instructionContinue, 4, SpringLayout.SOUTH, instruction);
 
-        //layout.putConstraint(SpringLayout.EAST, objlist, -20, SpringLayout.EAST, contentPane);
-        //layout.putConstraint(SpringLayout.NORTH, objlist, 40, SpringLayout.NORTH, buttonAdd);
+        layout.putConstraint(SpringLayout.WEST, clear_all, 300, SpringLayout.EAST, back_button);
+        layout.putConstraint(SpringLayout.NORTH, clear_all, 0, SpringLayout.NORTH, back_button);
 
         layout.putConstraint(SpringLayout.EAST, objscroll, -20, SpringLayout.EAST, contentPane);
         layout.putConstraint(SpringLayout.NORTH, objscroll, 40, SpringLayout.NORTH, buttonAdd);
@@ -148,6 +154,29 @@ public class ObjectivesWindow<objectives> {
             }
         });
 
+        clear_all.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                FileWriter fwOb1 = null;
+                try {
+                    fwOb1 = new FileWriter("src/Data/Objectives.txt", false);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                PrintWriter pwOb1 = new PrintWriter(fwOb1, false);
+                pwOb1.flush();
+                pwOb1.close();
+                try {
+                    fwOb1.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+
+                System.exit(0);
+            }
+        });
+
         back_button.addActionListener(new ActionListener() {  //переход назад в менюшку
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -162,6 +191,7 @@ public class ObjectivesWindow<objectives> {
         objscroll.createVerticalScrollBar();
         objscroll.setFont(font);
 
+        contentPane.add(clear_all);
         contentPane.add(instructionContinue);
         contentPane.add(instruction);
         contentPane.add(objscroll);
